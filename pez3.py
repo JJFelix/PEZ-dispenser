@@ -24,10 +24,10 @@ def drawSpring(initial_spring_position, shrink_spring_by):
     while i <= length:
         if i == length:
             canvas.create_rectangle(152,initial_spring_position + (shrink_spring_by * i) ,223,248, fill="blue")  
-            new_spring_position = initial_spring_position + (shrink_spring_by * i)  
+            # new_spring_position = initial_spring_position + (shrink_spring_by * i)  
         i += 1
 
-    return new_spring_position
+    # return new_spring_position
 
 drawSpring(initial_spring_position, candy_height)
 
@@ -52,10 +52,11 @@ def push():
         messagebox.showinfo("Success", f"Pushed candy {len(candyStack)} into Dispenser")
         print(candyStack)
     else:
-        messagebox.showerror("Error", "Dispenser is full")
+        
         candy_height = 20
         drawSpring(initial_spring_position, candy_height )
         drawCandy(candy_entry_point,candy_height, len(candyStack))
+        messagebox.showerror("Error", "Dispenser is full")
         print(candyStack)
 
     
