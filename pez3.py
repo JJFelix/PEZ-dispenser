@@ -35,7 +35,7 @@ drawSpring(initial_spring_position, candy_height)
 def drawCandy(initial_spring_position, candy_height, no_of_candies):
     i = 0
     while i < no_of_candies:
-        canvas.create_oval(152,initial_spring_position+(candy_height*i), 223, initial_spring_position+(candy_height*(i+1)), fill="brown")     
+        canvas.create_oval(152,initial_spring_position+(candy_height*i),223, initial_spring_position+(candy_height*(i+1)), fill="brown")     
         i += 1
 
 # STACK OPERATIONS
@@ -52,7 +52,7 @@ def push():
         messagebox.showinfo("Success", f"Pushed candy {len(candyStack)} into Dispenser")
         print(candyStack)
     else:
-        
+        # messagebox.showerror("Error", "Dispenser is full")
         candy_height = 20
         drawSpring(initial_spring_position, candy_height )
         drawCandy(candy_entry_point,candy_height, len(candyStack))
@@ -83,7 +83,7 @@ def isEmpty():
     if candyStack_length == 0:
         messagebox.showerror("Error", "Dispenser is Empty")
     else:
-        messagebox.showinfo("Success","Dispenser has Candy")
+        messagebox.showinfo("Success","Dispenser is not Empty")
     return candyStack_length == 0
 
 def top():
