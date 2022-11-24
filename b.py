@@ -59,21 +59,7 @@ def push():
     k = k - len(candy_stack)*2.5
     candy_start_point_y = draw_spring(start_point_x, start_point_y, k)
     draw_candy(start_point_x, candy_start_point_y, candy_h, len(candy_stack))
-
-    # if size_label['text'] != '':
-    #     size()
-
-    # if top_label['text'] != '':
-    #     top()
-
-    # if size_label['text'] != '':
-    #     size()
     
-
-
-buttonPush = Button(actionsFrame, text='Push', command=push)
-buttonPush.grid(row=1, column=0, padx=20, pady=20)
-
 print(candy_stack)
 
 def pop():
@@ -89,12 +75,6 @@ def pop():
     candy_start_point_y = draw_spring(start_point_x, start_point_y, k)
     draw_candy(start_point_x, candy_start_point_y, candy_h, len(candy_stack))
 
-buttonPop = Button(actionsFrame, text='Pop', command=pop)
-buttonPop.grid(row=1, column=1, padx=20, pady=20)
-
-isEmpty_label = Label(actionsFrame, text='', fg='black', font=('Helvetica 15 bold'))
-isEmpty_label.grid(row=2, column=0, padx=20, pady=20)
-
 def isEmpty():
     l = len(candy_stack)
     value = ''
@@ -104,17 +84,33 @@ def isEmpty():
         value = 'False'
         isEmpty_label.config(text= f'Is Empty: {value}')
 
-buttonIsEmpty = Button(actionsFrame, text='Is Empty', command=isEmpty)
-buttonIsEmpty.grid(row=3, column=0,padx=20, pady=20)
-
-size_label = Label(actionsFrame, text='', fg='black', font=('Helvetica 15 bold'))
-size_label.grid(row=4, column=0, padx=20, pady=20)
-
 def size():
     l = len(candy_stack)
     size_label.config(text = f'Size: {str(l)}')
 
+def top():
+    top_candy = len(candy_stack) 
+    size_label.config(text = f'Top Candy: {str(top_candy)}')
+
+size_label = Label(actionsFrame, text='', fg='black', font=('Helvetica 15 bold'))
+size_label.grid(row=4, column=0, padx=20, pady=20)
+
+buttonPush = Button(actionsFrame, text='Push', command=push)
+buttonPush.grid(row=1, column=0, padx=20, pady=20)
+
+buttonPop = Button(actionsFrame, text='Pop', command=pop)
+buttonPop.grid(row=1, column=1, padx=20, pady=20)
+
+isEmpty_label = Label(actionsFrame, text='', fg='black', font=('Helvetica 15 bold'))
+isEmpty_label.grid(row=2, column=0, padx=20, pady=20)
+
+buttonIsEmpty = Button(actionsFrame, text='Is Empty', command=isEmpty)
+buttonIsEmpty.grid(row=3, column=0,padx=20, pady=20)
+
 buttonSize = Button(actionsFrame, text='Size', command=size)
 buttonSize.grid(row=5, column=0, padx=20, pady=20)
+
+buttonSize = Button(actionsFrame, text='Top', command=top)
+buttonSize.grid(row=5, column=1, padx=20, pady=20)
 
 root.mainloop()
